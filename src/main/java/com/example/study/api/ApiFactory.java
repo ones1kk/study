@@ -2,16 +2,21 @@ package com.example.study.api;
 
 import com.example.study.api.execute.ApiExecutor;
 import java.util.Map;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-
-@RequiredArgsConstructor
+@Component
 public class ApiFactory {
 
-    private static final Map<String, ApiExecutor> executor = null;
+    private static Map<String, ApiExecutor> executor;
 
-    public static ApiExecutor create(String name) {
+    @Autowired
+    private void init(Map<String, ApiExecutor> executor) {
+        ApiFactory.executor = executor;
+    }
+
+    public static ApiExecutor call(String name) {
         return executor.get(name);
     }
+
 }
