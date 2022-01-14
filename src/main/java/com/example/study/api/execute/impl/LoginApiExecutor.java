@@ -2,18 +2,24 @@ package com.example.study.api.execute.impl;
 
 import com.example.study.api.execute.ApiExecutor;
 import com.example.study.api.execute.ApiGetter;
+import com.example.study.api.model.Login;
 import com.example.study.api.model.LoginStatus;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @Component
 public class LoginApiExecutor extends ApiGetter {
 
     //    @Value("${api.url.login}")
-    private String url;
+//    private String url;
 
     public LoginApiExecutor(RestTemplate connection, Map<String, Object> queryParam) {
         super(connection, queryParam);
