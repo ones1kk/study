@@ -10,6 +10,10 @@ public class ApiFactory {
 
     private static Map<String, ApiExecutor> executor;
 
+    private ApiFactory() {}
+
+
+
     @Autowired
     private void init(Map<String, ApiExecutor> executor) {
         ApiFactory.executor = executor;
