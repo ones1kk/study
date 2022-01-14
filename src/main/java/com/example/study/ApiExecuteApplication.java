@@ -18,15 +18,14 @@ public class ApiExecuteApplication {
     public static void main(String[] args) throws MalformedURLException {
         ApplicationContext ap = new AnnotationConfigApplicationContext(
             AutoAppConfig.class);
-        ApiExecutor apiExecutor = ap.getBean("loginApiExecutor",
-            ApiExecutor.class);
+//        ApiExecutor apiExecutor = ap.getBean("loginApiExecutor",
+//            ApiExecutor.class);
 
-        System.out.println("apiExecutor = " + apiExecutor);
+//        System.out.println("apiExecutor = " + apiExecutor);
 
-        Map<String, Object> param = new HashMap<>();
+        Map<String, String> param = new HashMap<>();
         param.put("id", "hello");
         param.put("pw", "bye");
-
 
         // URL apiUrl = new URL("test url");
         /**
@@ -36,5 +35,16 @@ public class ApiExecuteApplication {
          * 3. 어디로 보낼 것인가? + (헤더 파라미터)
          * 4. return 값을 어떻게 받을 것인가?ㅊㅍ
          */
+        ResponseEntity<LoginStatus> test = ApiFactory.call("loginApiExecutor").put(param)
+            .send("apiUrl");
+        System.out.println(
+            "============================================================================");
+        HttpStatus statusCode = test.getStatusCode();   //상태코드확인
+        HttpHeaders headers = test.getHeaders();    //헤더정보확인
+        LoginStatus body = test.getBody();   //바디정보확인
+
+        System.out.println("statusCode = " + statusCode);
+        System.out.println("headers = " + headers);
+        System.out.println("body = " + body);
     }
 }

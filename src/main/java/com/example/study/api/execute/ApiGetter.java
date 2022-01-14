@@ -13,6 +13,6 @@ public abstract class ApiGetter implements ApiExecutor {
 
 //    protected final JsonObject json;
 
-    protected final Map<String, Object> queryParam ;
+    protected final Map<String, Object> queryParam;
 
 }

@@ -26,32 +26,35 @@ public class LoginApiExecutor extends ApiGetter {
     }
 
     @Override
-    public ApiExecutor put(Map<String, Object> param) {
+    public ApiExecutor put(Map<String, String> param) {
         queryParam.putAll(param);
         return this;
     }
 
     @Override
-    public LoginStatus send(String url) {
+    public ResponseEntity<LoginStatus> send(String url) {
         System.out.println("LoginApiExecutor.send");
         queryParam.forEach((s, o) -> System.out.println(s + " : " + o));
-//        HttpHeaders header = new HttpHeaders();
-//        HttpEntity<?> entity = new HttpEntity<>(header);
-//
-//        url = new URL("http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json") ;
-//        UriComponents uri = UriComponentsBuilder.fromHttpUrl(url + "?" + "key=key&targetDt=20210201")
-//            .encode(StandardCharsets.UTF_8)
-////            .queryParams()
-//            .build();
-//
-//        ResponseEntity<Object> exchange = connection.exchange(uri.toString(), HttpMethod.POST, entity, Object.class);
-//
-//        System.out.println("exchange = " + exchange);
-//
-//        HttpStatus statusCode = exchange.getStatusCode();   //상태코드확인
-//        HttpHeaders headers = exchange.getHeaders();    //헤더정보확인
-//        Object body = exchange.getBody();   //바디정보확인
+        HttpHeaders header = new HttpHeaders();
+        header.set("appKey", "95fca38ba5c78be7f3ed0c1a1bf3e657f5bcc27b76dcf7664fabcb146a2f18508");
 
-        return null;
+        Login user = Login.builder()
+            .id(String.valueOf(queryParam.get("id")))
+            .password(String.valueOf(queryParam.get("pw")))
+            .build();
+
+        HttpEntity<Login> entity = new HttpEntity<>(user, header);
+
+        System.out.println("entity = " + entity);
+
+        url = "http://api.koreannet.or.kr/mobileweb/stdprd/loginAction.do";
+        UriComponents uri = UriComponentsBuilder.fromHttpUrl(url)
+            .encode(StandardCharsets.UTF_8)
+            .build();
+
+
+
+        return connection.exchange(uri.toString(), HttpMethod.POST,
+            entity, LoginStatus.class);
     }
 }
