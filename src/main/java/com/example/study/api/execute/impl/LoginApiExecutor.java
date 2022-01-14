@@ -20,7 +20,8 @@ public class LoginApiExecutor extends ApiGetter {
     //    @Value("${api.url.login}")
 //    private String url;
 
-    public LoginApiExecutor(RestTemplate connection, Map<String, Object> bodyMap, LoginStatus status) {
+    public LoginApiExecutor(RestTemplate connection, Map<String, Object> bodyMap,
+        LoginStatus status) {
         super(connection, bodyMap);
 
     }
@@ -49,7 +50,7 @@ public class LoginApiExecutor extends ApiGetter {
     }
 
     @Override
-    public LoginStatus getResult(){
+    public LoginStatus getResult() {
         return status;
     }
 
