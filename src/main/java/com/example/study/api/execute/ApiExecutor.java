@@ -8,6 +8,9 @@ public interface ApiExecutor {
 
     public ApiExecutor put(Map<String, String> param);
 
-    public ResponseEntity<LoginStatus> send(String url);
+    public ApiExecutor send();
+
+    public LoginStatus getResult();
+
 
 }
