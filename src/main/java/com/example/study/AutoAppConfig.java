@@ -1,5 +1,6 @@
 package com.example.study;
 
+import com.example.study.api.model.LoginStatus;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -36,6 +37,11 @@ public class AutoAppConfig {
             .setConnectTimeout(Duration.ofMillis(5000)) //읽기시간초과, ms
             .setReadTimeout(Duration.ofMillis(5000))    //연결시간초과, ms
             .build();
+    }
+
+    @Bean
+    public LoginStatus loginStatus() {
+        return new LoginStatus();
     }
 
 }
