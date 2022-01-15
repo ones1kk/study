@@ -1,3 +1,5 @@
 api:
+  login:
+    appKey : aaaa
   url:
     login: https://www.naver.com
