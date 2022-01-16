@@ -16,7 +16,7 @@ import org.springframework.web.util.UriComponents;
 public class LoginApiExecutor extends ApiGetter {
 
     public LoginApiExecutor(RestTemplate connection, Map<String, Object> bodyMap,
-        LoginStatus status, EntitySetter setter) {
+        EntitySetter setter) {
         super(connection, bodyMap, setter);
 
     }

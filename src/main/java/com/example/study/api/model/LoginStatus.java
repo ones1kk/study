@@ -14,4 +14,5 @@ public class LoginStatus {
     private String resultCode;
 
     private String message;
+
 }

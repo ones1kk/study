@@ -13,7 +13,6 @@ public class ApiFactory {
     private ApiFactory() {
     }
 
-
     @Autowired
     private void init(Map<String, ApiExecutor> executor) {
         ApiFactory.executor = executor;
