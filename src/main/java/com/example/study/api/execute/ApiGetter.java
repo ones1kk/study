@@ -19,5 +19,9 @@ public abstract class ApiGetter implements ApiExecutor {
 
     protected final EntitySetter setter;
 
+    public LoginStatus getResult(){
+        return status;
+    }
+
 
 }

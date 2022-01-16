@@ -42,9 +42,4 @@ public class LoginApiExecutor extends ApiGetter {
         return this;
     }
 
-    @Override
-    public LoginStatus getResult() {
-        return status;
-    }
-
 }
