@@ -2,7 +2,6 @@ package com.example.study;
 
 import com.example.study.api.ApiFactory;
 import com.example.study.api.model.LoginStatus;
-import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
@@ -12,7 +11,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 @ConfigurationPropertiesScan
 public class ApiExecuteApplication {
 
-    public static void main(String[] args) throws MalformedURLException {
+    public static void main(String[] args) {
         ApplicationContext ap = new AnnotationConfigApplicationContext(
             AutoAppConfig.class);
 
@@ -27,8 +26,9 @@ public class ApiExecuteApplication {
          * 3. 어디로 보낼 것인가? + (헤더 파라미터)
          * 4. return 값을 어떻게 받을 것인가?
          */
+//        ApiExecutor loginApiExecutor = ApiFactory.call("loginApiExecutor").put(param);
+//        loginApiExecutor.getResult();
         LoginStatus status = ApiFactory.call("loginApiExecutor").put(param).send().getResult();
-
         System.out.println("status = " + status);
     }
 }

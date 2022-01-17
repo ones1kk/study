@@ -17,8 +17,7 @@ import org.springframework.web.util.UriComponents;
 public class LoginApiExecutor extends ApiGetter {
 
     public LoginApiExecutor(RestTemplate connection, Map<String, Object> bodyMap,
-        ApiProperty apiProperty,
-        EntitySetter setter) {
+        ApiProperty apiProperty, EntitySetter setter) {
         super(connection, bodyMap, apiProperty, setter);
 
     }
@@ -32,7 +31,7 @@ public class LoginApiExecutor extends ApiGetter {
     @Override
     public ApiExecutor send() {
         HttpEntity<Login> entity = setter.set(bodyMap,
-            apiProperty.getApi().getAppKey());
+            apiProperty.getAppKey());
 
         String url = apiProperty.getUrl().getLogin();
 
