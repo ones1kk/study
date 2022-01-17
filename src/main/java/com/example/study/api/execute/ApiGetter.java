@@ -1,6 +1,7 @@
 package com.example.study.api.execute;
 
 import com.example.study.api.EntitySetter;
+import com.example.study.api.model.ApiProperty;
 import com.example.study.api.model.LoginStatus;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
@@ -15,11 +16,13 @@ public abstract class ApiGetter implements ApiExecutor {
 
     protected final Map<String, Object> bodyMap;
 
+    protected final ApiProperty apiProperty;
+
     protected LoginStatus status;
 
     protected final EntitySetter setter;
 
-    public LoginStatus getResult(){
+    public LoginStatus getResult() {
         return status;
     }
 

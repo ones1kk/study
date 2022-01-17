@@ -1,5 +1,4 @@
 api:
-  login:
-    appKey : aaaa
+  appKey : 95fca38ba5c78be7f3ed0c1a1bf3e657f5bcc27b76dcf7664fabcb146a2f18508
   url:
-    login: https://www.naver.com
+    login: http://api.koreannet.or.kr/mobileweb/stdprd/loginAction.do

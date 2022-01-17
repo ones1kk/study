@@ -5,9 +5,11 @@ import com.example.study.api.model.LoginStatus;
 import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+@ConfigurationPropertiesScan
 public class ApiExecuteApplication {
 
     public static void main(String[] args) throws MalformedURLException {
