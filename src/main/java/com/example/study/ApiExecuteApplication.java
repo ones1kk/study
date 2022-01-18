@@ -2,6 +2,8 @@ package com.example.study;
 
 import com.example.study.api.ApiFactory;
 import com.example.study.api.model.LoginStatus;
+import com.example.study.refactor.ApiFactoryV2;
+import com.example.study.refactor.model.ResultStatus;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -36,7 +38,12 @@ public class ApiExecuteApplication {
         LoginStatus status = ApiFactory.call("loginApiExecutor").put(param).send().getResult();
         System.out.println("status = " + status);
 
-        ApiFactory.call("").getResult();
+        ApiFactoryV2.call("loginExecutor").put(param).send();
+
+        ResultStatus resultStatus = ApiFactoryV2.call("loginExecutor").put(param).send()
+            .getStatus();
+
+        System.out.println("resultStatus = " + resultStatus);
 
         List<Field> list = Arrays.asList(status.getClass().getDeclaredFields());
 
