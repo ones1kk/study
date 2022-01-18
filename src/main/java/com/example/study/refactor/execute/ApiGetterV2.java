@@ -7,7 +7,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RequiredArgsConstructor
 @Component
-public abstract class ApiGetterV2 implements ApiExecutorV2{
+public abstract class ApiGetterV2 implements ApiExecutorV2 {
 
     private final EntitySetterV2 entitySetterV2;
 
@@ -18,5 +18,6 @@ public abstract class ApiGetterV2 implements ApiExecutorV2{
     /* 임시 */
     protected String appKey;
 
-    protected String url = url = "http://api.koreannet.or.kr/mobileweb/stdprd/loginAction.do";;
+    protected String url = url = "http://api.koreannet.or.kr/mobileweb/stdprd/loginAction.do";
+    ;
 }

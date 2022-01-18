@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public abstract class TestGetter implements ApiInterface{
+public abstract class TestGetter implements ApiInterface {
 
     protected final EntitySetter setter;
 

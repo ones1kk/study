@@ -1,10 +1,8 @@
 package com.example.study.api.model;
 
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;
-import org.springframework.stereotype.Component;
 
 @Data
 @ConstructorBinding
@@ -17,6 +15,7 @@ public class ApiProperty {
 
     @Data
     public static class Url {
+
         private final String login;
     }
 

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ApiFactory{
+public class ApiFactory {
 
     private static Map<String, ApiExecutor> executor;
 

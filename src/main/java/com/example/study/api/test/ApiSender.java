@@ -10,7 +10,7 @@ public class ApiSender {
         status = null;
     }
 
-    public LoginStatus getResultStatus(){
+    public LoginStatus getResultStatus() {
         return status;
     }
 

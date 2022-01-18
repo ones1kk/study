@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponents;
 
 @Configuration
 @ComponentScan
@@ -48,12 +47,12 @@ public class AutoAppConfig {
     }
 
     @Bean
-    public JSONObject jsonObject(){
+    public JSONObject jsonObject() {
         return new JSONObject();
     }
 
     @Bean
-    public ResultStatus status(){
+    public ResultStatus status() {
         return new ResultStatus();
     }
 
