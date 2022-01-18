@@ -14,9 +14,9 @@ public abstract class ApiGetter implements ApiExecutor {
 
     protected final RestTemplate connection;
 
-    protected final Map<String, Object> bodyMap;
+    protected final Map<String, String> bodyMap;
 
-    protected final ApiProperty apiProperty;
+//    protected final ApiProperty apiProperty;
 
     protected LoginStatus status;
 

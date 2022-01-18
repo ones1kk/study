@@ -10,8 +10,8 @@ import org.springframework.web.client.RestTemplate;
 public class ProductAuthorityApiExecutor extends ApiGetter {
 
     public ProductAuthorityApiExecutor(RestTemplate connection,
-        Map<String, Object> bodyMap, EntitySetter setter, ApiProperty apiProperty) {
-        super(connection, bodyMap, apiProperty, setter);
+        Map<String, String> bodyMap, EntitySetter setter) {
+        super(connection, bodyMap, setter);
     }
 
     @Override

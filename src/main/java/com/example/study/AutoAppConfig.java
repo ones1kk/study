@@ -5,6 +5,7 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.json.simple.JSONObject;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -42,6 +43,11 @@ public class AutoAppConfig {
     @Bean
     public LoginStatus loginStatus() {
         return new LoginStatus();
+    }
+
+    @Bean
+    public JSONObject jsonObject(){
+        return new JSONObject();
     }
 
 }

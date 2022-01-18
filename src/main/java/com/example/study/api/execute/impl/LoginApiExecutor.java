@@ -3,10 +3,9 @@ package com.example.study.api.execute.impl;
 import com.example.study.api.EntitySetter;
 import com.example.study.api.execute.ApiExecutor;
 import com.example.study.api.execute.ApiGetter;
-import com.example.study.api.model.ApiProperty;
-import com.example.study.api.model.Login;
 import com.example.study.api.model.LoginStatus;
 import java.util.Map;
+import org.json.simple.JSONObject;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
@@ -16,10 +15,16 @@ import org.springframework.web.util.UriComponents;
 @Component
 public class LoginApiExecutor extends ApiGetter {
 
-    public LoginApiExecutor(RestTemplate connection, Map<String, Object> bodyMap,
-        ApiProperty apiProperty, EntitySetter setter) {
-        super(connection, bodyMap, apiProperty, setter);
+    //    @Value("${api.url.login}")
+//    private String url;
+//
+//    @Value("${api.appKey}")
+//    private String appKey;
+    private static final String appKey = "95fca38ba5c78be7f3ed0c1a1bf3e657f5bcc27b76dcf7664fabcb146a2f1850805be5a47bbf0062404f8040e26a141cbe6d5ca64ea96104aef65a81341b0b2a";
 
+    public LoginApiExecutor(RestTemplate connection, Map<String, String> bodyMap,
+        EntitySetter setter) {
+        super(connection, bodyMap, setter);
     }
 
     @Override
@@ -30,10 +35,11 @@ public class LoginApiExecutor extends ApiGetter {
 
     @Override
     public ApiExecutor send() {
-        HttpEntity<Login> entity = setter.set(bodyMap,
-            apiProperty.getAppKey());
+        HttpEntity<JSONObject> entity = setter.set(bodyMap,
+            appKey);
+//            apiProperty.getAppKey());
 
-        String url = apiProperty.getUrl().getLogin();
+        String url = "http://api.koreannet.or.kr/mobileweb/stdprd/loginAction.do";
 
         UriComponents uri = setter.setUri(url);
 
