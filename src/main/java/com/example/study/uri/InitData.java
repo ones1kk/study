@@ -21,6 +21,18 @@ public class InitData {
         admin.setRole(Role.ADMIN);
         userRepository.save(admin);
 
+        User test1 = new User("test1@email.com", "1234", "관리자");
+        admin.setRole(Role.ADMIN);
+        userRepository.save(test1);
+
+        User test2 = new User("test2@email.com", "1234", "관리자");
+        admin.setRole(Role.USER);
+        userRepository.save(test2);
+
+        User test3 = new User("test3@email.com", "1234", "관리자");
+        admin.setRole(Role.USER);
+        userRepository.save(test3);
+
         List<User> users = userRepository.findAll();
         users.forEach(it -> log.info(it.toString()));
 

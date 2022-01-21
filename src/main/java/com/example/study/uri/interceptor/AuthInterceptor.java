@@ -1,9 +1,12 @@
 package com.example.study.uri.interceptor;
 
+import com.example.study.uri.UserRepository;
 import com.example.study.uri.annotation.MySecured;
+import com.example.study.uri.model.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
@@ -12,7 +15,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Component
 @Slf4j
+@RequiredArgsConstructor
 public class AuthInterceptor implements HandlerInterceptor {
+
+    private final UserRepository userRepository;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
@@ -43,11 +49,16 @@ public class AuthInterceptor implements HandlerInterceptor {
         }
 
         // 세션이 존재하면 유효한 유저인지 확인
-        String id = (String) session.getAttribute("id");
-        if (id == null) {
+        String email = (String) session.getAttribute("email");
+        if (email == null) {
             log.info("Access Failed");
             return false;
         }
+
+//        User user = userRepository.findByEmail(email);
+//        if(!email.equals(user.getEmail())){
+//            return false;
+//        }
 
         return HandlerInterceptor.super.preHandle(request, response, handler);
     }
