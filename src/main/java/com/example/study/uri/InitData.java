@@ -21,7 +21,6 @@ public class InitData {
         admin.setRole(Role.ADMIN);
         userRepository.save(admin);
 
-
         List<User> users = userRepository.findAll();
         users.forEach(it -> log.info(it.toString()));
 

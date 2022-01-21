@@ -13,7 +13,8 @@ public class UserRepository {
     private static Map<Long, User> userMap = new HashMap<>();
     private static long count = 1L;
 
-    private UserRepository() {}
+    private UserRepository() {
+    }
 
     public Long save(User user) {
         user.setId(count);
@@ -25,7 +26,8 @@ public class UserRepository {
 
     public Boolean isUser(String email, String password) {
         return userMap.values().stream()
-            .anyMatch((user) -> user.getEmail().equals(email) && user.getPassword().equals(password));
+            .anyMatch(
+                (user) -> user.getEmail().equals(email) && user.getPassword().equals(password));
     }
 
     public User findByEmail(String email) {

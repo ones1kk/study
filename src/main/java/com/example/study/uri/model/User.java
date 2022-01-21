@@ -1,7 +1,6 @@
 package com.example.study.uri.model;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 

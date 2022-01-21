@@ -1,12 +1,9 @@
 package com.example.study.uri.interceptor;
 
 import com.example.study.uri.annotation.MySecured;
-import com.example.study.uri.model.Role;
-import com.example.study.uri.model.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
