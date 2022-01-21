@@ -7,13 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 @Component
-//
+@Slf4j
 public class AuthInterceptor implements HandlerInterceptor {
 
     @Override
@@ -40,12 +41,14 @@ public class AuthInterceptor implements HandlerInterceptor {
         // @MySequred가 있는 경우이므로, 세션이 있는지 체크
         HttpSession session = request.getSession();
         if (session == null) {
+            log.info("Access Failed");
             return false;
         }
 
         // 세션이 존재하면 유효한 유저인지 확인
         String id = (String) session.getAttribute("id");
         if (id == null) {
+            log.info("Access Failed");
             return false;
         }
 
