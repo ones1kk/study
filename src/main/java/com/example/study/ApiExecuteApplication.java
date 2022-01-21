@@ -1,17 +1,6 @@
 package com.example.study;
 
-import com.example.study.api.ApiFactory;
-import com.example.study.api.model.LoginStatus;
-import com.example.study.refactor.ApiFactoryV2;
-import com.example.study.refactor.model.ResultStatus;
-import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 @ConfigurationPropertiesScan
@@ -19,12 +8,12 @@ import org.springframework.context.annotation.ComponentScan;
 public class ApiExecuteApplication {
 
     public static void main(String[] args) {
-        ApplicationContext ap = new AnnotationConfigApplicationContext(
-            AutoAppConfig.class);
-
-        Map<String, String> param = new HashMap<>();
-        param.put("id", "hello");
-        param.put("pw", "bye");
+//        ApplicationContext ap = new AnnotationConfigApplicationContext(
+//            AutoAppConfig.class);
+//
+//        Map<String, String> param = new HashMap<>();
+//        param.put("id", "hello");
+//        param.put("pw", "bye");
 
         /*
          * 요구 사항
@@ -35,17 +24,17 @@ public class ApiExecuteApplication {
          */
 //        ApiExecutor loginApiExecutor = ApiFactory.call("loginApiExecutor").put(param);
 //        loginApiExecutor.getResult();
-        LoginStatus status = ApiFactory.call("loginApiExecutor").put(param).send().getResult();
-        System.out.println("status = " + status);
-
-        ApiFactoryV2.call("loginExecutor").put(param).send();
-
-        ResultStatus resultStatus = ApiFactoryV2.call("loginExecutor").put(param).send()
-            .getStatus();
-
-        System.out.println("resultStatus = " + resultStatus);
-
-        List<Field> list = Arrays.asList(status.getClass().getDeclaredFields());
+//        LoginStatus status = ApiFactory.call("loginApiExecutor").put(param).send().getResult();
+//        System.out.println("status = " + status);
+//
+//        ApiFactoryV2.call("loginExecutor").put(param).send();
+//
+//        ResultStatus resultStatus = ApiFactoryV2.call("loginExecutor").put(param).send()
+//            .getStatus();
+//
+//        System.out.println("resultStatus = " + resultStatus);
+//
+//        List<Field> list = Arrays.asList(status.getClass().getDeclaredFields());
 
     }
 }

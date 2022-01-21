@@ -5,6 +5,6 @@ import java.util.Map;
 
 public interface ApiExecutorV2 {
 
-    public EntitySetterV2 put(Map<String, String> param);
+    public EntitySetterV2 put(Map<String, String> body);
 
 }

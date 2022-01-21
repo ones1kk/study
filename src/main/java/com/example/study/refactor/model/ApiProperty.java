@@ -1,4 +1,4 @@
-package com.example.study.api.model;
+package com.example.study.refactor.model;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -17,6 +17,8 @@ public class ApiProperty {
     public static class Url {
 
         private final String login;
-    }
 
+        private final String auth;
+
+    }
 }

@@ -1,7 +1,5 @@
 package com.example.study;
 
-import com.example.study.api.model.LoginStatus;
-import com.example.study.refactor.model.ResultStatus;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -9,14 +7,12 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.json.simple.JSONObject;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
-@ComponentScan
 public class AutoAppConfig {
 
     @Bean
@@ -42,18 +38,8 @@ public class AutoAppConfig {
     }
 
     @Bean
-    public LoginStatus loginStatus() {
-        return new LoginStatus();
-    }
-
-    @Bean
     public JSONObject jsonObject() {
         return new JSONObject();
-    }
-
-    @Bean
-    public ResultStatus status() {
-        return new ResultStatus();
     }
 
 }

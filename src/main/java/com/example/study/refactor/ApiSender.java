@@ -15,15 +15,12 @@ public class ApiSender {
 
     private final RestTemplate restTemplate;
 
-    private final UriComponents uri;
-
-    private final HttpEntity<JSONObject> entity;
-
     private ResultStatus status;
 
-    public void send() {
+    public ApiSender send(UriComponents uri, HttpEntity<JSONObject> entity) {
         status = restTemplate.exchange(uri.toString(), HttpMethod.POST, entity, ResultStatus.class)
             .getBody();
+        return this;
     }
 
     public ResultStatus getStatus() {
