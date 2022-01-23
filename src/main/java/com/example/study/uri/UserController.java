@@ -29,6 +29,7 @@ public class UserController {
 
     @GetMapping("/move")
     public String move() {
+        System.out.println("UserController.move");
         return "forward:/run";
     }
 
@@ -42,6 +43,7 @@ public class UserController {
     @GetMapping("/run")
     @ResponseBody
     public String run() {
+        System.out.println("UserController.run");
         return "run";
     }
 

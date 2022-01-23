@@ -2,7 +2,6 @@ package com.example.study.uri.interceptor;
 
 import com.example.study.uri.UserRepository;
 import com.example.study.uri.annotation.MySecured;
-import com.example.study.uri.model.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -55,12 +54,21 @@ public class AuthInterceptor implements HandlerInterceptor {
             return false;
         }
 
+        String requestURL = request.getRequestURL().toString();
+
+        // @TODO 먼저 헤더를 체크해야함
+        if (isEqual(requestURL, "http://localhost:8080/move" , "http://localhost:8080/fly")){
+            return true;
+        }
+
 //        User user = userRepository.findByEmail(email);
 //        if(!email.equals(user.getEmail())){
 //            return false;
 //        }
 
-        return HandlerInterceptor.super.preHandle(request, response, handler);
+        {
+            return HandlerInterceptor.super.preHandle(request, response, handler);
+        }
     }
 
     @Override
@@ -71,5 +79,14 @@ public class AuthInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response,
         Object handler, Exception ex) throws Exception {
+    }
+
+    private boolean isEqual(String source, String... strs) {
+        boolean isEqual = false;
+        for (String str : strs)
+        {
+            isEqual =  source.equals(str);
+        }
+        return isEqual;
     }
 }
