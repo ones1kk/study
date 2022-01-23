@@ -2,6 +2,7 @@ package com.example.study.uri.interceptor;
 
 import com.example.study.uri.UserRepository;
 import com.example.study.uri.annotation.MySecured;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequiredArgsConstructor
 public class AuthInterceptor implements HandlerInterceptor {
 
+    private static String source;
     private final UserRepository userRepository;
 
     @Override
@@ -81,11 +83,11 @@ public class AuthInterceptor implements HandlerInterceptor {
         Object handler, Exception ex) throws Exception {
     }
 
-    private boolean isEqual(String source, String... strs) {
+    public static boolean isEqual(String source, String... strs) {
         boolean isEqual = false;
         for (String str : strs)
         {
-            isEqual =  source.equals(str);
+            isEqual =  source.toString().equals(str);
         }
         return isEqual;
     }
