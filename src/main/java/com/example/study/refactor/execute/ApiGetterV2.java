@@ -12,6 +12,4 @@ public abstract class ApiGetterV2 implements ApiExecutorV2 {
     protected final ApiProperty apiProperty;
 
     protected final EntitySetterV2 entitySetter;
-
-    protected static String url;
 }

@@ -16,7 +16,7 @@ public class LoginExecutor extends ApiGetterV2 {
 
     @Override
     public EntitySetterV2 put(Map<String, String> body) {
-        url = apiProperty.getUrl().getLogin();
-        return entitySetter.get(body, url);
+
+        return entitySetter.get(body, apiProperty.getUrl().getLogin());
     }
 }
